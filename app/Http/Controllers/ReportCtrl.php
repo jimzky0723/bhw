@@ -73,7 +73,7 @@ class ReportCtrl extends Controller
             $address_e = $row->address_e;
             $picture = 'C:/bhw/pictures/'.$row->url_prof;
             $signature = 'C:/bhw/signature/'.$row->url_sig;
-            $tmp_id = 'DOH7-'.str_pad($row->id,4,0,STR_PAD_LEFT).'-'.date('Y');
+            $tmp_id = 'RO7-'.date('Y',strtotime($row->date_added)).'-'.str_pad(date('m',strtotime($row->date_added)),2,0,STR_PAD_LEFT).'-'.str_pad($row->id,6,0,STR_PAD_LEFT);
 
             $address_e .= ', '.LocationCtrl::getBarangayName($row->barangay_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
