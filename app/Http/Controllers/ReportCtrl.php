@@ -72,7 +72,7 @@ class ReportCtrl extends Controller
             $mname_e = (strlen($row->mname_e)>0) ? $mname_e[0].'.' : '';
 
             $picture = "C:\bhw\pictures\\".$row->url_prof;
-            $signature = 'C:\bhw\signature\\'.$row->url_sig;
+            $signature = 'C:\bhw\signatures\\'.$row->url_sig;
             $tmp_id = 'RO7-'.date('Y',strtotime($row->date_added)).'-'.str_pad(date('m',strtotime($row->date_added)),2,0,STR_PAD_LEFT).'-'.str_pad($row->id,6,0,STR_PAD_LEFT);
 
             $address_e = ', '.LocationCtrl::getBarangayName($row->barangay_e);
