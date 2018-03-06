@@ -232,7 +232,7 @@ $province = App\Province::orderBy('description','asc')->get();
                         <tr>
                             <td colspan="2">
                                 <label class="label">Address :</label>
-                                <input type="text" name="address_e" class="form-control-static" placeholder="Address" />
+                                <input type="text" name="address_e" value="{{ $data->address_e }}" class="form-control-static" placeholder="Address" />
                                 <select name="barangay_e" class="form-control-select chosen-select-static" id="filterBarangay2" style="width: 20%">
                                     <option value="">Barangay...</option>
                                 </select>

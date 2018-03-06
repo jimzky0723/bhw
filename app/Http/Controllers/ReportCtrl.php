@@ -18,7 +18,13 @@ class ReportCtrl extends Controller
 
     public function index()
     {
-        return view('report.index');
+        $data = Member::orderBy('muncity','asc')
+            ->orderBy('barangay','asc')
+            ->orderBy('lname','asc')
+            ->paginate(20);
+        return view('report.index',[
+            'data' => $data
+        ]);
     }
 
     public function generateHome()
@@ -52,21 +58,51 @@ class ReportCtrl extends Controller
         return $count;
     }
 
+
     public function generateExcel()
     {
-        $data = array(
-            array('data1', 'data2'),
-            array('data3', 'data4')
-        );
+        $members = Member::orderBy('id','asc')->get();
+        $data = array();
+        foreach($members as $row)
+        {
+            $mname = $row->mname;
+            $mname = (strlen($row->mname)>0) ? $mname[0].'.' : '';
+            $mname_e = $row->mname_e;
+            $mname_e = (strlen($row->mname_e)>0) ? $mname_e[0].'.' : '';
+            $address_e = $row->address_e;
+            $picture = 'C:/bhw/pictures/'.$row->url_prof;
+            $signature = 'C:/bhw/signature/'.$row->url_sig;
+
+            $address_e .= ', '.LocationCtrl::getBarangayName($row->barangay_e);
+            $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
+            $address_e .= ', '.LocationCtrl::getBarangayName($row->province_e);
+            $data[] = array(
+                'id' => $row->id,
+                'name' => $row->fname.' '.$mname.' '.$row->lname.' '.$row->suffix,
+                'address' => strtoupper($row->address),
+                'barangay' => strtoupper(LocationCtrl::getBarangayName($row->barangay)),
+                'muncity' => strtoupper(LocationCtrl::getBarangayName($row->muncity)),
+                'province' => strtoupper(LocationCtrl::getBarangayName($row->province)),
+                'blood_type' => $row->blood_type,
+                'dob' => date('M d, Y',strtotime($row->dob)),
+                'name_e' => $row->fname_e.' '.$mname_e.' '.$row->lname_e.' '.$row->suffix_e,
+                'address_e' => strtoupper($address_e),
+                'contact_e' => $row->contact_e,
+                'picture' => $picture,
+                'signature' => $signature
+            );
+        }
+
+//        print_r($data);
 
         Excel::create('Filename', function($excel) use($data) {
 
 
-            $excel->sheet('Sheetname', function($sheet) use($data) {
+            $excel->sheet('Member List', function($sheet) use($data) {
 
                 $sheet->fromArray($data);
                 $sheet->row(1, array(
-                    'test1', 'test2'
+                    'ID', 'Name','Address','Barangay','Muncipality/City','Province','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
                 ));
 
             });

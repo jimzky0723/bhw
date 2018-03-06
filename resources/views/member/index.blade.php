@@ -23,6 +23,8 @@
         <div class="alert alert-jim">
             <h3 class="page-header">Member
                 <small>| List</small>
+                <a href="{{ url('report/excel') }}" class="btn btn-success pull-right"><i class="fa fa-file-excel-o"></i> Download File</a>
+                <div class="clearfix"></div>
             </h3>
 
             @if(count($records)==0)

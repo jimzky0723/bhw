@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Barangay;
+use App\Province;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Muncity;
@@ -32,5 +33,29 @@ class LocationCtrl extends Controller
                 ->get();
         return $barangay;
 
+    }
+
+    public static function getBarangayName($id)
+    {
+        if($id==0){
+            return 'N/A';
+        }
+        return Barangay::find($id)->description;
+    }
+
+    public static function getMuncityName($id)
+    {
+        if($id==0){
+            return 'N/A';
+        }
+        return Muncity::find($id)->description;
+    }
+
+    public static function getProvinceName($id)
+    {
+        if($id==0){
+            return 'N/A';
+        }
+        return Province::find($id)->description;
     }
 }

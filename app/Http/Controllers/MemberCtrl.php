@@ -24,6 +24,8 @@ class MemberCtrl extends Controller
     public function saveMember(Request $req)
     {
         $post = $_POST;
+        print_r($post);
+
         $unique = array(
             $req->fname,
             $req->mname,
