@@ -87,6 +87,7 @@ class ReportCtrl extends Controller
                 'location' => strtoupper($location),
                 'barangay' => strtoupper($row->barangay),
                 'muncity' => strtoupper($row->muncity),
+                'province' => strtoupper($row->province),
                 'blood_type' => $row->blood_type,
                 'dob' => date('M d, Y',strtotime($row->dob)),
                 'name_e' => $row->fname_e.' '.$mname_e.' '.$row->lname_e.' '.$row->suffix_e,
@@ -107,7 +108,7 @@ class ReportCtrl extends Controller
 
                 $sheet->fromArray($data);
                 $sheet->row(1, array(
-                    'No','ID #', 'Name','Address','Location','Barangay','Municipal/City','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
+                    'ID #','BHW ID', 'Name','Address','Location','Barangay','Municipal/City','Province','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
                 ));
 
             });
