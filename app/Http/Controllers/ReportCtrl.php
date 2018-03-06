@@ -63,6 +63,7 @@ class ReportCtrl extends Controller
     {
         $members = Member::orderBy('id','asc')->get();
         $data = array();
+        $c=1;
         foreach($members as $row)
         {
             $mname = $row->mname;
@@ -72,12 +73,14 @@ class ReportCtrl extends Controller
             $address_e = $row->address_e;
             $picture = 'C:/bhw/pictures/'.$row->url_prof;
             $signature = 'C:/bhw/signature/'.$row->url_sig;
+            $tmp_id = 'DOH7-'.str_pad($row->id,4,0,STR_PAD_LEFT).'-'.date('Y');
 
             $address_e .= ', '.LocationCtrl::getBarangayName($row->barangay_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->province_e);
             $data[] = array(
-                'id' => $row->id,
+                'No' => $c,
+                'id' => $tmp_id,
                 'name' => $row->fname.' '.$mname.' '.$row->lname.' '.$row->suffix,
                 'address' => strtoupper($row->address),
                 'barangay' => strtoupper(LocationCtrl::getBarangayName($row->barangay)),
@@ -91,18 +94,19 @@ class ReportCtrl extends Controller
                 'picture' => $picture,
                 'signature' => $signature
             );
+            $c++;
         }
 
 //        print_r($data);
 
-        Excel::create('Filename', function($excel) use($data) {
+        Excel::create('BHW_ID_Printing', function($excel) use($data) {
 
 
             $excel->sheet('Member List', function($sheet) use($data) {
 
                 $sheet->fromArray($data);
                 $sheet->row(1, array(
-                    'ID', 'Name','Address','Barangay','Muncipality/City','Province','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
+                    'No','ID #', 'Name','Address','Barangay','Muncipality/City','Province','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
                 ));
 
             });
