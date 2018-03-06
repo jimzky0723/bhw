@@ -77,15 +77,16 @@ class ReportCtrl extends Controller
 
             $address_e = ', '.LocationCtrl::getBarangayName($row->barangay_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
-            $address_e .= ', '.LocationCtrl::getBarangayName($row->province_e);
 
-            $location = LocationCtrl::getBarangayName($row->muncity).', '.LocationCtrl::getBarangayName($row->barangay);
+            $location = LocationCtrl::getBarangayName($row->barangay).', '.LocationCtrl::getBarangayName($row->muncity);
             $data[] = array(
                 'No' => $c,
                 'id' => $tmp_id,
                 'name' => $row->fname.' '.$mname.' '.$row->lname.' '.$row->suffix,
                 'address' => strtoupper($row->address),
                 'location' => strtoupper($location),
+                'barangay' => strtoupper($row->barangay),
+                'muncity' => strtoupper($row->muncity),
                 'blood_type' => $row->blood_type,
                 'dob' => date('M d, Y',strtotime($row->dob)),
                 'name_e' => $row->fname_e.' '.$mname_e.' '.$row->lname_e.' '.$row->suffix_e,
@@ -106,7 +107,7 @@ class ReportCtrl extends Controller
 
                 $sheet->fromArray($data);
                 $sheet->row(1, array(
-                    'No','ID #', 'Name','Address','Location','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
+                    'No','ID #', 'Name','Address','Location','Barangay','Municipal/City','Blood Type','Date of Birth','Name to Contact','Address','Contact','Picture','Signature'
                 ));
 
             });
