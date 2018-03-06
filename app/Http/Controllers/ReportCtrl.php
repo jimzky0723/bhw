@@ -78,7 +78,7 @@ class ReportCtrl extends Controller
             $address_e = LocationCtrl::getBarangayName($row->barangay_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
 
-            $location = LocationCtrl::getMuncityName($row->muncity).', '.LocationCtrl::getProvinceName($row->province);
+            $location = LocationCtrl::getBarangayName($row->barangay).', '.LocationCtrl::getMuncityName($row->muncity);
             $data[] = array(
                 'No' => $c,
                 'id' => $tmp_id,
