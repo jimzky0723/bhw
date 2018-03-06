@@ -78,16 +78,16 @@ class ReportCtrl extends Controller
             $address_e = LocationCtrl::getBarangayName($row->barangay_e);
             $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
 
-            $location = LocationCtrl::getBarangayName($row->barangay).', '.LocationCtrl::getBarangayName($row->muncity);
+            $location = LocationCtrl::getMuncityName($row->muncity).', '.LocationCtrl::getProvinceName($row->province);
             $data[] = array(
                 'No' => $c,
                 'id' => $tmp_id,
                 'name' => $row->fname.' '.$mname.' '.$row->lname.' '.$row->suffix,
                 'address' => strtoupper($row->address),
                 'location' => strtoupper($location),
-                'barangay' => strtoupper($row->barangay),
-                'muncity' => strtoupper($row->muncity),
-                'province' => strtoupper($row->province),
+                'barangay' => strtoupper(LocationCtrl::getBarangayName($row->barangay)),
+                'muncity' => strtoupper(LocationCtrl::getMuncityName($row->muncity)),
+                'province' => strtoupper(LocationCtrl::getProvinceName($row->province)),
                 'blood_type' => $row->blood_type,
                 'dob' => date('M d, Y',strtotime($row->dob)),
                 'name_e' => $row->fname_e.' '.$mname_e.' '.$row->lname_e.' '.$row->suffix_e,

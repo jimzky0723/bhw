@@ -27,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportCtrl.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
-              <caret line="110" column="25" lean-forward="false" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+              <caret line="110" column="104" lean-forward="false" selection-start-line="110" selection-start-column="104" selection-end-line="110" selection-end-column="104" />
               <folding>
                 <element signature="e#40#55#0#PHP" expanded="true" />
                 <element signature="e#196#272#0#PHP" expanded="false" />
@@ -390,12 +390,12 @@
       <workItem from="1513902665696" duration="3436000" />
       <workItem from="1515374089215" duration="341000" />
       <workItem from="1517117224405" duration="1788000" />
-      <workItem from="1520303610763" duration="12417000" />
+      <workItem from="1520303610763" duration="12871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75876000" />
+    <option name="totallyTimeSpent" value="76330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
@@ -829,7 +829,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportCtrl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
-          <caret line="110" column="25" lean-forward="false" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <caret line="110" column="104" lean-forward="false" selection-start-line="110" selection-start-column="104" selection-end-line="110" selection-end-column="104" />
           <folding>
             <element signature="e#40#55#0#PHP" expanded="true" />
             <element signature="e#196#272#0#PHP" expanded="false" />
