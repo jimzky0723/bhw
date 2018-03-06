@@ -33,3 +33,6 @@ Route::get('generate/{id}','GenerateCtrl@generateID');
 Route::get('report','ReportCtrl@index');
 Route::get('report/home','ReportCtrl@generateHome');
 Route::get('report/excel','ReportCtrl@generateExcel');
+
+//check png files
+Route::get('check','CheckCtrl@index');

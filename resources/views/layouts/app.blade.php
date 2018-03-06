@@ -148,7 +148,7 @@
                         <li><a href="{{ URL::to('member/list') }}"><i class="fa fa-table"></i>&nbsp;&nbsp; Member List</a></li>
                         @if(Auth::user()->user_priv==1)
                         <li class="divider"></li>
-                        <li><a href="{{ URL::to('report') }}"><i class="fa fa-bar-chart"></i>&nbsp;&nbsp; Print Report</a></li>
+                        <li><a href="{{ URL::to('check') }}"><i class="fa fa-check"></i>&nbsp;&nbsp; Check PNG Files</a></li>
                         @endif
                     </ul>
                 </li>
