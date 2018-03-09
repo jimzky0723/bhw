@@ -182,7 +182,8 @@ class MemberCtrl extends Controller
             $province = isset($keyword['province']) ? $keyword['province']: null;
             $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
             $check_id = isset($keyword['check_id']) ? $keyword['check_id']: null;
-            $data = Member::leftJoin('check_id','check_id.member_id','=','member.unique_id');
+            $data = Member::select('member.*')
+                    ->leftJoin('check_id','check_id.member_id','=','member.unique_id');
             if($key){
                 $data = $data->where(function($q) use($key){
                     $q = $q->orwhere('member.fname','like',"%$key%")
