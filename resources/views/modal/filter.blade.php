@@ -1,6 +1,6 @@
 <div class="modal fade" role="dialog" id="filterResult">
     <div class="modal-dialog modal-sm" role="document">
-        <form method="POST">
+        <form method="POST" action="{{ url('member/list') }}">
             <div class="modal-content">
                 <div class="modal-body">
                     <fieldset>
