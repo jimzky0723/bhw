@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Member;
 use App\Payment;
+use Illuminate\Support\Facades\Session;
 
 class MemberCtrl extends Controller
 {
@@ -91,6 +92,10 @@ class MemberCtrl extends Controller
             ],
         ]);
 
+        $c = new CheckID();
+        $c->member_id = $unique;
+        $c->save();
+
         return redirect()->back()->with('status','added');
 
     }
@@ -169,9 +174,51 @@ class MemberCtrl extends Controller
 
     public function listMember()
     {
-        $data['records'] = Member::orderBy('lname','asc')
-                    ->paginate(20);
-        return view('member.index',$data);
+        $keyword = Session::get('keyword');
+        $data = array();
+        if($keyword){
+
+            $key = isset($keyword['keyword']) ? $keyword['keyword']:null;
+            $province = isset($keyword['province']) ? $keyword['province']: null;
+            $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
+            $check_id = isset($keyword['check_id']) ? $keyword['check_id']: null;
+            $data = Member::leftJoin('check_id','check_id.member_id','=','member.unique_id');
+            if($key){
+                $data = $data->where(function($q) use($key){
+                    $q = $q->orwhere('member.fname','like',"%$key%")
+                        ->orwhere('member.mname','like',"%$key%")
+                        ->orwhere('member.lname','like',"%$key%");
+                });
+            }
+            if($province && $province!='all')
+            {
+                $data = $data->where('member.province',$province);
+            }
+            if($muncity && $muncity!='all')
+            {
+                $data = $data->where('member.muncity',$muncity);
+            }
+            if($check_id==='yes')
+            {
+                $data = $data->where('check_id.status',1);
+            }else if($check_id==='no'){
+                $data = $data->where('check_id.status',0);
+            }
+            $record['records'] = $data->orderBy('lname','asc')
+                ->paginate(20);
+
+        }else{
+            $record['records'] = Member::orderBy('lname','asc')
+                ->paginate(20);
+        }
+
+        return view('member.index',$record);
+    }
+
+    public function searchMember(Request $req)
+    {
+        Session::put('keyword',$_POST);
+        return self::listMember();
     }
 
     public function editMember($id){
@@ -208,5 +255,16 @@ class MemberCtrl extends Controller
         Member::where('id',$id)
             ->delete();
         return redirect('member/list')->with('status','deleted');
+    }
+
+    public function fix()
+    {
+        $members = Member::get();
+        foreach($members as $row)
+        {
+            $q = "INSERT IGNORE check_id(member_id) VALUES ('$row->unique_id')";
+            echo $row->id.'<br />';
+            DB::select($q);
+        }
     }
 }

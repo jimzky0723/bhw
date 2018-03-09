@@ -35,8 +35,8 @@
                         <select class="form-control" name="check_id">
                             <div class="muncity_list">
                                 <option value="all">Both</option>
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </div>
                         </select>
                     </div>

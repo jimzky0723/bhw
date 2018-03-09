@@ -9,7 +9,10 @@ Route::get('/home', 'HomeController@index');
 Route::get('member','MemberCtrl@listMember');
 Route::get('member/add','MemberCtrl@addMember');
 Route::post('member/save','MemberCtrl@saveMember');
+
 Route::get('member/list','MemberCtrl@listMember');
+Route::post('member/list','MemberCtrl@searchMember');
+
 Route::get('member/{id}','MemberCtrl@editMember');
 Route::post('member/update/{id}','MemberCtrl@updateMember');
 Route::get('member/delete/{id}','MemberCtrl@deleteMember');
@@ -36,3 +39,4 @@ Route::get('report/excel','ReportCtrl@generateExcel');
 
 //check png files
 Route::get('check','CheckCtrl@index');
+Route::get('fix','MemberCtrl@fix');

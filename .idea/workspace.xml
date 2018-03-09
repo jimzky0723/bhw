@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3605600f-9d8d-4bec-ac43-7351cef1bb67" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/css/style.css" afterPath="$PROJECT_DIR$/resources/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/member/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/member/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/member/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/member/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/modal/filter.blade.php" afterPath="$PROJECT_DIR$/resources/views/modal/filter.blade.php" />
     </list>
     <ignored path="bhw.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +48,8 @@
       <file leaf-file-name="filter.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/modal/filter.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+            <state relative-caret-position="631">
+              <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -84,21 +81,21 @@
       <file leaf-file-name="MemberCtrl.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+            <state relative-caret-position="673">
+              <caret line="265" column="35" lean-forward="false" selection-start-line="265" selection-start-column="35" selection-end-line="265" selection-end-column="35" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
-                <marker date="1520566463369" expanded="true" signature="1713:1733" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="1713:1738" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="1713:1747" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="1713:1756" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="1713:1781" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="1713:1782" ph="..." />
-                <marker date="1520566463369" expanded="true" signature="6087:6125" ph="INSERT INTO check_id... " />
-                <marker date="1520566463369" expanded="true" signature="6087:6168" ph="INSERT INTO check_id... " />
-                <marker date="1520566463369" expanded="true" signature="6087:6199" ph="INSERT INTO check_id... " />
-                <marker date="1520566463369" expanded="true" signature="6200:6231" ph="UPDATE statu... " />
-                <marker date="1520566463369" expanded="true" signature="6200:6232" ph="UPDATE statu... " />
+                <marker date="1520580034033" expanded="true" signature="1753:1773" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="1753:1778" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="1753:1787" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="1753:1796" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="1753:1821" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="1753:1822" ph="..." />
+                <marker date="1520580034033" expanded="true" signature="7790:7828" ph="INSERT INTO check_id... " />
+                <marker date="1520580034033" expanded="true" signature="7790:7871" ph="INSERT INTO check_id... " />
+                <marker date="1520580034033" expanded="true" signature="7790:7902" ph="INSERT INTO check_id... " />
+                <marker date="1520580034033" expanded="true" signature="7903:7934" ph="UPDATE statu... " />
+                <marker date="1520580034033" expanded="true" signature="7903:7935" ph="UPDATE statu... " />
               </folding>
             </state>
           </provider>
@@ -119,8 +116,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="32" />
+            <state relative-caret-position="654">
+              <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -164,10 +161,10 @@
       <find>session</find>
       <find>Middlename</find>
       <find>unset</find>
-      <find>muncitylist</find>
       <find>location/muncitylist</find>
       <find>for id</find>
       <find>ocation/muncitylist</find>
+      <find>muncitylist</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,18 +203,18 @@
         <option value="$PROJECT_DIR$/resources/views/report/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LocationCtrl.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/report/check.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CheckCtrl.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportCtrl.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/CheckID.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_03_09_102200_create_id_checker.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php" />
         <option value="$PROJECT_DIR$/resources/views/member/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/member/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/modal/filter.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php" />
       </list>
     </option>
   </component>
@@ -452,12 +449,12 @@
       <workItem from="1520411560818" duration="628000" />
       <workItem from="1520429945625" duration="1345000" />
       <workItem from="1520470587029" duration="1841000" />
-      <workItem from="1520561598886" duration="6154000" />
+      <workItem from="1520561598886" duration="8664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87239000" />
+    <option name="totallyTimeSpent" value="89749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
@@ -853,14 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/framework/views/81ef6b778ec97b60217249f1ae9815bcb54d059b.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -892,29 +881,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modal/filter.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state relative-caret-position="631">
+          <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MemberCtrl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+        <state relative-caret-position="673">
+          <caret line="265" column="35" lean-forward="false" selection-start-line="265" selection-start-column="35" selection-end-line="265" selection-end-column="35" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <marker date="1520566463369" expanded="true" signature="1713:1733" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="1713:1738" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="1713:1747" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="1713:1756" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="1713:1781" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="1713:1782" ph="..." />
-            <marker date="1520566463369" expanded="true" signature="6087:6125" ph="INSERT INTO check_id... " />
-            <marker date="1520566463369" expanded="true" signature="6087:6168" ph="INSERT INTO check_id... " />
-            <marker date="1520566463369" expanded="true" signature="6087:6199" ph="INSERT INTO check_id... " />
-            <marker date="1520566463369" expanded="true" signature="6200:6231" ph="UPDATE statu... " />
-            <marker date="1520566463369" expanded="true" signature="6200:6232" ph="UPDATE statu... " />
+            <marker date="1520580034033" expanded="true" signature="1753:1773" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="1753:1778" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="1753:1787" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="1753:1796" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="1753:1821" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="1753:1822" ph="..." />
+            <marker date="1520580034033" expanded="true" signature="7790:7828" ph="INSERT INTO check_id... " />
+            <marker date="1520580034033" expanded="true" signature="7790:7871" ph="INSERT INTO check_id... " />
+            <marker date="1520580034033" expanded="true" signature="7790:7902" ph="INSERT INTO check_id... " />
+            <marker date="1520580034033" expanded="true" signature="7903:7934" ph="UPDATE statu... " />
+            <marker date="1520580034033" expanded="true" signature="7903:7935" ph="UPDATE statu... " />
           </folding>
         </state>
       </provider>
