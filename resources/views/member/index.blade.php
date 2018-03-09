@@ -23,7 +23,10 @@
         <div class="alert alert-jim">
             <h3 class="page-header">Member
                 <small>| List</small>
-                <a href="{{ url('report/excel') }}" class="btn btn-success pull-right"><i class="fa fa-file-excel-o"></i> Download File</a>
+                <div class="pull-right">
+                    <a href="#filterResult" data-toggle="modal" class="btn btn-warning"><i class="fa fa-filter"></i> Filter Result</a>
+                    <a href="{{ url('report/excel') }}" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Download File</a>
+                </div>
                 <div class="clearfix"></div>
             </h3>
 
@@ -37,6 +40,7 @@
                     <thead>
                     <tr>
                         <th>Name</th>
+                        <th>With ID</th>
                         <th>Address</th>
                         <th>Gender</th>
                         <th>Date of Birth</th>
@@ -54,6 +58,19 @@
                                 <br />
                                 @if($row->contact!=null)
                                 <small class="text-info"><em>({{ $row->contact }})</em></small>
+                                @endif
+                            </td>
+                            <td>
+                                <?php
+                                $check = \App\CheckID::where('member_id',$row->unique_id)
+                                    ->first();
+                                $status = 0;
+                                if($check){
+                                    $status = $check->status;
+                                }
+                                ?>
+                                @if($status==1)
+                                    <i class="fa fa-check text-success"></i>
                                 @endif
                             </td>
                             <td>
@@ -103,6 +120,7 @@
         </div>
     </div>
     @include('modal.payment')
+    @include('modal.filter')
 @endsection
 
 @section('js')
@@ -262,6 +280,41 @@ $status = session('status');
         });
     }
 
+</script>
+
+<script>
+    $('.filter_province').on('change',function(){
+        var province = $(this).val();
+        var link = "{{ url('location/muncitylist') }}/"+province;
+        if(province=='all')
+        {
+            $('select[name="muncity"]').attr('disabled',true).empty()
+                .append($('<option>', {
+                    value: "all",
+                    text : "All Municipality/City"
+                }));;
+        }else{
+            $.ajax({
+                url: link,
+                type: "GET",
+                success: function(data){
+                    $('select[name="muncity"]').attr('disabled',false)
+                        .empty()
+                        .append($('<option>', {
+                            value: "all",
+                            text : "All Municipality/City"
+                        }));
+                    jQuery.each(data, function(i,val){
+                        $('select[name="muncity"]').append($('<option>', {
+                            value: val.id,
+                            text : val.description
+                        }));
+                    });
+                }
+            });
+        }
+
+    });
 </script>
 @endsection
 

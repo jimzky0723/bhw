@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CheckID;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -181,8 +182,9 @@ class MemberCtrl extends Controller
     public function updateMember(Request $req,$id)
     {
         $data = $_POST;
+        $status = $data['check_id'];
         $unique_id = Member::where('id',$id)->first()->unique_id;
-
+        unset($data['check_id']);
         if($_FILES['prof_pic']['name']){
             $data['url_prof'] = self::uploadPicture($_FILES['prof_pic'],$unique_id,'pictures');
         }
@@ -191,6 +193,13 @@ class MemberCtrl extends Controller
         }
         Member::where('id',$id)
             ->update($data);
+
+        $q = "INSERT INTO check_id(member_id,status)
+              VALUES('$unique_id',$status)
+              ON DUPLICATE KEY UPDATE
+                status = $status
+        ";
+        DB::select($q);
         return back()->with('status','success');
     }
 

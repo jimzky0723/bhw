@@ -193,6 +193,22 @@ $province = App\Province::orderBy('description','asc')->get();
                             <td colspan="3" style="background: #ccc;">
                                 <div class="text-center text-bold">
                                     FOR ID CARD PURPOSES
+                                    <?php
+                                        $check = \App\CheckID::where('member_id',$data->unique_id)
+                                            ->first();
+                                        $status = 0;
+                                        if($check){
+                                            $status = $check->status;
+                                        }
+                                    ?>
+                                    <div id="check_id" class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-info {{ ($status==1) ? 'active':'' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio"  {{ ($status==1) ? 'checked':'' }} name="check_id" value="1" data-parsley-multiple="gender">&nbsp; Printed &nbsp;
+                                        </label>
+                                        <label class="btn btn-info {{ ($status==0) ? 'active':'' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio"  {{ ($status==0) ? 'checked':'' }} name="check_id" value="0" data-parsley-multiple="gender"> Not Printed
+                                        </label>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -332,7 +348,7 @@ $province = App\Province::orderBy('description','asc')->get();
                 <div class="pull-right">
                     <a href="{{ url('member/list') }}" class="btn btn-flat btn-default"><i class="fa fa-arrow-left"></i> Back</a>
                     <a href="#" class="btn btn-flat btn-danger" onclick="showDeleteModal({{$data->id}})"><i class="fa fa-trash"></i> Delete</a>
-                    <button type="button" class="btn btn-success btn-flat btn-generate" onclick="generateID({{$data->id}})"><i class="fa fa-user"></i> Generate ID Card</button>
+                    <button type="button" class="hide btn btn-success btn-flat btn-generate" onclick="generateID({{$data->id}})"><i class="fa fa-user"></i> Generate ID Card</button>
                     <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-user-plus"></i> Update</button>
                 </div>
                 <div class="clearfix"></div>
