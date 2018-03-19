@@ -1,3 +1,13 @@
+<?php
+    $provinces = \App\Province::orderBy('description','asc')->get();
+    $keyword = Session::get('keyword');
+
+    $key = isset($keyword['keyword']) ? $keyword['keyword']:null;
+    $province = isset($keyword['province']) ? $keyword['province']: null;
+    $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
+    $check_id = isset($keyword['check_id']) ? $keyword['check_id']: null;
+?>
+
 <div class="modal fade" role="dialog" id="filterResult">
     <div class="modal-dialog modal-sm" role="document">
         <form method="POST" action="{{ url('member/list') }}">
@@ -8,25 +18,22 @@
                     </fieldset>
                     <div class="form-group">
                         <label>Keyword</label>
-                        <input type="text" class="form-control" name="keyword" placeholder="Input keyword..." />
+                        <input value="{{ $key }}" type="text" class="form-control" name="keyword" placeholder="Input keyword..." />
                     </div>
                     <div class="form-group">
                         <label>Province</label>
                         <select class="form-control filter_province" name="province">
-                            <?php
-                                $province = \App\Province::orderBy('description','asc')->get();
-                            ?>
                             <option value="all">All Provinces</option>
-                            @foreach($province as $row)
-                            <option value="{{ $row->id }}">{{ $row->description }}</option>
+                            @foreach($provinces as $row)
+                            <option {{ ($row->id==$province) ? 'selected':'null' }} value="{{ $row->id }}">{{ $row->description }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Province</label>
-                        <select class="form-control" name="muncity" disabled>
+                        <select class="form-control" name="muncity" {{ ($muncity) ? '': 'disabled' }}>
                             <div class="muncity_list">
-                                <option value="all">All Muncity</option>
+                                <option value="all">All Municipality/City</option>
                             </div>
                         </select>
                     </div>

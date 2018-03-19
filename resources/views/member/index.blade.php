@@ -283,38 +283,57 @@ $status = session('status');
 </script>
 
 <script>
+    <?php
+        $keyword = Session::get('keyword');
+
+        $province = isset($keyword['province']) ? $keyword['province']: null;
+        $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
+    ?>
+    var id = "{{ $province }}";
+    var muncity = "{{ $muncity }}";
+    if(id){
+        filter_muncity(id);
+    }
+    console.log(id);
     $('.filter_province').on('change',function(){
         var province = $(this).val();
-        var link = "{{ url('location/muncitylist') }}/"+province;
+
         if(province=='all')
         {
             $('select[name="muncity"]').attr('disabled',true).empty()
                 .append($('<option>', {
                     value: "all",
                     text : "All Municipality/City"
-                }));;
+                }));
         }else{
-            $.ajax({
-                url: link,
-                type: "GET",
-                success: function(data){
-                    $('select[name="muncity"]').attr('disabled',false)
-                        .empty()
-                        .append($('<option>', {
-                            value: "all",
-                            text : "All Municipality/City"
-                        }));
-                    jQuery.each(data, function(i,val){
-                        $('select[name="muncity"]').append($('<option>', {
-                            value: val.id,
-                            text : val.description
-                        }));
-                    });
-                }
-            });
+            filter_muncity(province);
         }
 
     });
+
+    function filter_muncity(id)
+    {
+        var link = "{{ url('location/muncitylist') }}/"+id;
+        $.ajax({
+            url: link,
+            type: "GET",
+            success: function(data){
+                $('select[name="muncity"]').attr('disabled',false)
+                    .empty()
+                    .append($('<option>', {
+                        value: "all",
+                        text : "All Municipality/City"
+                    }));
+                jQuery.each(data, function(i,val){
+                    $('select[name="muncity"]').append($('<option>', {
+                        value: val.id,
+                        text : val.description
+                    }));
+                });
+                $('select[name="muncity"]').val(muncity);
+            }
+        });
+    }
 </script>
 @endsection
 

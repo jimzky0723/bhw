@@ -26,7 +26,6 @@ class MemberCtrl extends Controller
     public function saveMember(Request $req)
     {
         $post = $_POST;
-        print_r($post);
 
         $unique = array(
             $req->fname,
@@ -89,11 +88,12 @@ class MemberCtrl extends Controller
                 'payment_date' => $req->payment_date2,
                 'added_by' => $post['added_by'],
                 'date_added' => date('Y-m-d H:i:s')
-            ],
+            ]
         ]);
 
         $c = new CheckID();
-        $c->member_id = $unique;
+        $c->member_id = $post['unique_id'];
+        $c->status = 0;
         $c->save();
 
         return redirect()->back()->with('status','added');
