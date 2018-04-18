@@ -6,6 +6,7 @@ use App\Member;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReportCtrl extends Controller
@@ -61,7 +62,45 @@ class ReportCtrl extends Controller
 
     public function generateExcel()
     {
-        $members = Member::orderBy('id','asc')->get();
+        //$members = Member::orderBy('id','asc')->get();
+        $keyword = Session::get('keyword');
+        if($keyword){
+
+            $key = isset($keyword['keyword']) ? $keyword['keyword']:null;
+            $province = isset($keyword['province']) ? $keyword['province']: null;
+            $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
+            $check_id = isset($keyword['check_id']) ? $keyword['check_id']: null;
+            $data = Member::select('member.*')
+                ->leftJoin('check_id','check_id.member_id','=','member.unique_id');
+            if($key){
+                $data = $data->where(function($q) use($key){
+                    $q = $q->orwhere('member.fname','like',"%$key%")
+                        ->orwhere('member.mname','like',"%$key%")
+                        ->orwhere('member.lname','like',"%$key%");
+                });
+            }
+            if($province && $province!='all')
+            {
+                $data = $data->where('member.province',$province);
+            }
+            if($muncity && $muncity!='all')
+            {
+                $data = $data->where('member.muncity',$muncity);
+            }
+            if($check_id==='yes')
+            {
+                $data = $data->where('check_id.status',1);
+            }else if($check_id==='no'){
+                $data = $data->where('check_id.status',0);
+            }
+            $record['records'] = $data->orderBy('lname','asc')
+                ->get();
+
+        }else{
+            $record['records'] = Member::orderBy('lname','asc')
+                ->get();
+        }
+        $members = $record['records'];
         $data = array();
         $c=1;
         foreach($members as $row)
