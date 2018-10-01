@@ -115,7 +115,7 @@ class ReportCtrl extends Controller
             $tmp_id = 'RO7-'.date('Y',strtotime($row->date_added)).'-'.str_pad(date('m',strtotime($row->date_added)),2,0,STR_PAD_LEFT).'-'.str_pad($row->id,6,0,STR_PAD_LEFT);
 
             $address_e = LocationCtrl::getBarangayName($row->barangay_e);
-            $address_e .= ', '.LocationCtrl::getBarangayName($row->muncity_e);
+            $address_e .= ', '.LocationCtrl::getMuncityName($row->muncity_e);
 
             $location = LocationCtrl::getBarangayName($row->barangay).', '.LocationCtrl::getMuncityName($row->muncity);
             $data[] = array(
