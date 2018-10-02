@@ -36,12 +36,12 @@
                     <?php $total += $val; ?>
                     <tr>
                         <td>{{ $key }}</td>
-                        <td>{{ $val }}</td>
+                        <td>{{ number_format($val,0) }}</td>
                     </tr>
                 @endforeach
                 <tr class="bg-success">
                     <th>TOTAL</th>
-                    <th>{{ $total }}</th>
+                    <th>{{ number_format($total,0) }}</th>
                 </tr>
                 </table>
             @else

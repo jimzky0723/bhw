@@ -4,6 +4,7 @@
     <list default="true" id="3605600f-9d8d-4bec-ac43-7351cef1bb67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/modal/filter.blade.php" afterPath="$PROJECT_DIR$/resources/views/modal/filter.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/report/count.blade.php" afterPath="$PROJECT_DIR$/resources/views/report/count.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/sidebar/report.blade.php" afterPath="$PROJECT_DIR$/resources/views/sidebar/report.blade.php" />
     </list>
     <ignored path="bhw.iws" />
@@ -44,21 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="report.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/sidebar/report.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="546">
+              <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="count.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="count.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/report/count.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state relative-caret-position="547">
+              <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -179,9 +180,9 @@
         <option value="$PROJECT_DIR$/resources/views/modal/filterReport.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportCtrl.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/report/count.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/modal/filter.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/sidebar/report.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/modal/filter.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/report/count.blade.php" />
       </list>
     </option>
   </component>
@@ -439,12 +440,12 @@
       <workItem from="1524028329761" duration="366000" />
       <workItem from="1538381780180" duration="1626000" />
       <workItem from="1538440717940" duration="954000" />
-      <workItem from="1538460174202" duration="6136000" />
+      <workItem from="1538460174202" duration="6402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107773000" />
+    <option name="totallyTimeSpent" value="108039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
@@ -850,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/report/count.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modal/filter.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
@@ -868,8 +861,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/sidebar/report.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        <state relative-caret-position="546">
+          <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/report/count.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
           <folding />
         </state>
       </provider>
