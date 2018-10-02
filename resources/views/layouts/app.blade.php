@@ -152,6 +152,7 @@
                         @endif
                     </ul>
                 </li>
+                <li><a href="{{ url('/report') }}"><i class="fa fa-line-chart"></i> Report</a></li>
                 <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->

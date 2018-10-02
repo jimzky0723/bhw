@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Barangay;
 use App\Member;
+use App\Muncity;
+use App\Province;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -153,5 +156,77 @@ class ReportCtrl extends Controller
             });
 
         })->export('xls');
+    }
+
+    function countMemberByLocation($type,$id)
+    {
+        $data = Member::select('id');
+        if($type=='province')
+        {
+            $data = $data->where('province',$id);
+        }
+
+        if($type=='muncity')
+        {
+            $data = $data->where('muncity',$id);
+        }
+
+        if($type=='barangay')
+        {
+            $data = $data->where('barangay',$id);
+        }
+        $data = $data->count();
+        return $data;
+    }
+
+    public function countPerProvince()
+    {
+        $keyword = Session::get('keywordReport');
+        $provinces = Province::get();
+        foreach($provinces as $row){
+            $data[$row->description] = self::countMemberByLocation('province',$row->id);
+        }
+        $data['Cebu City'] = self::countMemberByLocation('muncity',63);
+        $data['Lapu-Lapu City'] = self::countMemberByLocation('muncity',76);
+        $data['Mandaue City'] = self::countMemberByLocation('muncity',80);
+
+        if($keyword){
+            $province = isset($keyword['province']) ? $keyword['province']: null;
+            $muncity = isset($keyword['muncity']) ? $keyword['muncity']: null;
+            if($province)
+            {
+                $muncities = Muncity::where('province_id',$province)
+                        ->where('id','!=',63)
+                        ->where('id','!=',76)
+                        ->where('id','!=',80)
+                        ->orderBy('description','asc')
+                        ->get();
+                $data = array();
+                foreach($muncities as $row){
+                    $data[$row->description] = self::countMemberByLocation('muncity',$row->id);
+                }
+            }
+
+            if($muncity)
+            {
+                $barangays = Barangay::where('muncity_id',$muncity)
+                    ->orderBy('description','asc')
+                    ->get();
+                $data = array();
+                foreach($barangays as $row){
+                    $data[$row->description] = self::countMemberByLocation('barangay',$row->id);
+                }
+            }
+        }
+
+        return view('report.count',[
+            'data' => $data
+        ]);
+    }
+
+    public function searchReport(Request $req)
+    {
+        Session::put('keywordReport',$_POST);
+        return self::countPerProvince();
     }
 }

@@ -19,6 +19,7 @@ Route::get('member/delete/{id}','MemberCtrl@deleteMember');
 
 
 //location
+
 Route::get('location/muncitylist/{id}','LocationCtrl@muncitylist');
 Route::get('location/barangaylist/{id}','LocationCtrl@barangaylist');
 
@@ -33,7 +34,9 @@ Route::get('payment/delete/{id}','PaymentCtrl@delete');
 Route::get('generate/{id}','GenerateCtrl@generateID');
 
 //generate report
-Route::get('report','ReportCtrl@index');
+Route::get('report','ReportCtrl@countPerProvince');
+Route::get('report/search','ReportCtrl@searchReport');
+Route::post('report/search','ReportCtrl@searchReport');
 Route::get('report/home','ReportCtrl@generateHome');
 Route::get('report/excel','ReportCtrl@generateExcel');
 
