@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Province</label>
+                        <label>City/Municipality</label>
                         <select class="form-control" name="muncity" {{ ($muncity) ? '': 'disabled' }}>
                             <div class="muncity_list">
                                 <option value="all">All Municipality/City</option>
